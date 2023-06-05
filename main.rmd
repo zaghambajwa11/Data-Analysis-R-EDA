@@ -1,0 +1,127 @@
+## Explotary Data Analysis (EDA) with R ##
+ 
+### Introduction ###
+First we will install tidyverse package and load it into our R session.
+Then we will load the dataset into our R session.
+other Packaegs that i Will use are skimr, summary Tools 
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("skimr")
+library(skimr)
+install.packages("summarytools")
+library(summarytools)
+```
+
+**Import the dataset**
+```{r}
+data <- read.csv("sepsis.csv")
+```
+
+show data structure
+```{r}
+str(data)
+```
+show column names
+```{r}
+colnames(data)
+```
+show first 6 rows
+```{r}
+head(data)
+```
+show last 6 rows
+```{r}
+tail(data)
+```
+show summary of the data
+```{r}
+summary(data)
+```
+show the data in a table format
+```{r}
+View(data)
+```
+
+show tibble
+```{r}
+tibble(data)
+```
+gimpse of the data
+```{r}
+glimpse(data)
+```
+skim the data
+```{r}
+skim(data)
+```
+Error in skim(data) : could not find function "skim"
+```{r}
+dfSummary(data)
+```
+freq(): This function generates frequency tables for categorical variables, including counts, percentages, and cumulative percentages.
+```{r}
+freq(data)
+```
+
+### import data visualization packages ###
+```{r}
+install.packages("ggplot2")
+library(ggplot2)
+install.packages("visdat")
+library(visdat)
+#install fun modelling
+install.packages("funModeling")
+library(funModeling)
+```
+
+show data with vizdat
+```{r}
+vis_dat(data)
+```
+see missing values
+```{r}
+vis_miss(data)
+```
+select numeric columns from data to see corrlations
+```{r}
+data_num <- data %>% select_if(is.numeric)
+
+```
+```{r}
+vis_cor(data_num)
+```
+select only numberic columns that are required for the analysis
+```{r}
+data_num <- data %>% select(5,6,7,8)
+```
+vusialize the data corrlations
+```{r}
+vis_cor(data_num)
+```
+two functions of funModeling package
+```{r}
+freq(data)
+```
+
+plot_num to plot histogram of numeric values
+
+```{r}
+plot_num(data)
+```
+now we will look into dlooker package
+```{r}
+install.packages("dlookr")
+library(dlookr)
+```
+```{r}
+
+
+
+
+
+
+
+
+
+
